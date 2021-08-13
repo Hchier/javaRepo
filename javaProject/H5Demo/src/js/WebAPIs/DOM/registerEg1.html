@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <style>
+
+        .register{
+            position: relative;
+
+            width: 400px;
+            border: 1px solid red;
+            margin: 0 auto;
+            top: 300px;
+        }
+        .username {
+            display: block;
+            margin: 0px auto 0;
+        }
+
+        .password {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .button {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="register">
+    <input type="text" class="username" value="请输入用户名"> <span id="usernametip">.</span>
+    <input type="text" class="password" value="请输入密码"> <span id="passwordtip">.</span>
+    <input type="button" class="button" value="show" id="button">
+</div>
+<script>
+    let username = document.getElementsByClassName('username')
+    username[0].onfocus = function () {
+        if (username[0].value == '请输入用户名')
+            username[0].value = ''
+    }
+    username[0].onblur = function () {
+        if (username[0].value == '')
+            username[0].value = '请输入用户名'
+        else {
+            if (username[0].value.length < 6) {
+                console.log("username[0].value.length", username[0].value.length)
+                console.log("document.getElementById('usernametip').value", document.getElementById('usernametip').innerText)
+                document.getElementById('usernametip').innerText = '6~8位';
+            }
+        }
+    }
+    let password = document.getElementsByClassName('password')
+    password[0].onfocus = function () {
+        if (password[0].value == '请输入密码') {
+            password[0].type = 'password'
+            password[0].value = ''
+        }
+    }
+    password[0].onblur = function () {
+        if (password[0].value == '') {
+            password[0].type = 'text'
+            password[0].value = '请输入密码'
+        }
+    }
+    let button = document.getElementById('button')
+    button.onclick = function () {
+        if (button.value == 'show') {
+            button.value = 'hidden'
+            password[0].type = 'text'
+        } else {
+            button.value = 'show'
+            password[0].type = 'password'
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

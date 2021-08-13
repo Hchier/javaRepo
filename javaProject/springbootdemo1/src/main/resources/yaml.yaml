@@ -1,0 +1,18 @@
+#yaml语法
+#普通键值对
+username: Hchier
+
+#对象
+user:
+  username: Hchier
+  password: 20
+#对象行类写法
+student: {name: Hchier,age: 3}
+
+#数组
+sz1:
+  - a
+  - b
+  - c
+
+sz2: [a,b,c]

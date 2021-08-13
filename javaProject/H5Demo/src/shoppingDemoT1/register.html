@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+
+    <style>
+
+        .register {
+            position: relative;
+            left: 50%;
+            margin-left: -150px;
+            margin-top: 20%;
+            height: 150px;
+            width: 300px;
+            border: 1px red solid;
+        }
+
+        .register.input {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            height: 75px;
+            border: 1px red solid;
+            box-sizing: border-box;
+        }
+
+        #user {
+
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            height: 30px;
+        }
+
+        #password {
+
+            position: absolute;
+            top: 55%;
+            left: 0%;
+            margin-top: -15px;
+            height: 30px;
+        }
+
+        #showbutton {
+            position: absolute;
+            top: 47%;
+            left: 43%;
+            width: 46px;
+            height: 30px;
+
+        }
+
+        #button {
+
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            margin-left: -25px;
+            width: 50px;
+            height: 30px;
+        }
+
+        p.p_user {
+
+        }
+
+        p.p_password {
+            position: absolute;
+            top: 47%;
+            left: 60%;
+            margin: 0;
+            height: 30px;
+            width: 115px;
+            line-height: 30px;
+        }
+        .user_wrong{
+            position: absolute;
+            top: 12%;
+            left: 60%;
+            margin: 0;
+            height: 30px;
+            width: 115px;
+            line-height: 30px;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="register">
+    <input type="text" class="input" id="user" value="请输入用户名">
+    <p class="p_user">用户名6~9位</p>
+    <input type="text" class="input" id="password" value="请输入密码">
+    <input type="button" value="show" id="showbutton">
+    <p class="p_password"></p>
+    <input type="button" value="OK" id="button">
+
+</div>
+
+<script>
+    let user = document.getElementById('user');
+    let p_user = document.getElementsByClassName('p_user')
+    user.onfocus = function () {
+        if (user.value == '请输入用户名') {
+            user.value = ''
+        }
+    }
+    user.onblur = function () {
+        if (user.value == '') {
+            user.value = '请输入用户名'
+        }
+        if (user.value.length < 6 || user.value.length > 9) {
+            p_user[0].className='p_user user_wrong'
+            p_user[0].innerHTML = '6~9位';
+
+
+        }
+        else{
+            p_user[0].innerHTML = ''
+        }
+    }
+    let password = document.getElementById('password')
+    password.onfocus = function () {
+        if (password.value == '请输入密码') {
+            password.value = ''
+            password.type = 'password'
+        }
+    }
+    password.onblur = function () {
+        if (password.value == '') {
+            password.type = 'text'
+            password.value = '请输入密码'
+        }
+    }
+    let buttonshow = document.getElementById('showbutton')
+    buttonshow.onclick = function () {
+        if (buttonshow.value == 'show') {
+            password.type = 'text'
+            buttonshow.value = 'hidden'
+        } else {
+            password.type = 'password'
+            buttonshow.value = 'show'
+        }
+
+    }
+</script>
+
+</body>
+</html>

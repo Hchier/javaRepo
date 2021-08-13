@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <style>
+        div.div1{
+            width: 300px;
+            height: 80px;
+            background-color: lightskyblue;
+            /*transition: width 0.1s ease 0s,height 0.1s ease 0s;*/
+            /*属性都变写all*/
+            transition: all 0.1s ease 0s;
+        }
+        div.div1:hover{
+            width: 600px;
+            height: 120px;
+        }
+
+
+        div.bar{
+            position: absolute;
+            top:300px;
+            width: 300px;
+            /*height: 12px;*/
+            border:red 2px solid;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        div.bar_in{
+            width: 4px;
+            height: 5px;
+            margin: 1px 1px 1px 1px;
+            background-color: red;
+
+            transition: width 0.2s ease 0s;
+        }
+        div.bar:hover .bar_in{
+            width: 100%;
+        }
+
+        div.y{
+            width: 120px;
+            height: 120px;
+            float: left;
+            background: url("pic/abcd.jpg") -358px -550px;
+            transition: background 0.3s ease 0s;
+        }
+        div.y:hover{
+            background: url("pic/abcd.jpg") -205px -130px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+
+<div class="bar">
+    <div class="bar_in"></div>
+</div>
+
+<div class="y"></div>
+<div class="h"></div>
+</body>
+</html>

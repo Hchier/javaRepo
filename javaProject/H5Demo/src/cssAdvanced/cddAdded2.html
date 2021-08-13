@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <style>
+        img {
+            transition: filter 0.3s ease 0s;
+        }
+
+        /*数值越大越模糊*/
+        img:hover {
+            filter: blur(8px);
+        }
+
+        div.div10 {
+            width: 400px;
+            height: 300px;
+            border: red 1px solid;
+            box-sizing: border-box;
+        }
+
+        div.div11 {
+            width: calc(100% - 50px);
+            height: calc(100% - 30px);
+            border: black 1px solid;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+<img src="pic/school1.jpg" width="800" height="450"/>
+<div class="div10">
+    <div class="div11"></div>
+</div>
+</body>
+</html>

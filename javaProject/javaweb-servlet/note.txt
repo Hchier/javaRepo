@@ -1,0 +1,8 @@
+页面乱码：加上 resp.setContentType("text/html");
+             resp.setCharacterEncoding("UTF-8");
+
+properties文件中有键值为中文时，乱码，上述设置无用
+请求转发时最后要forward
+
+action中加 ${pageContext.request.contextPath}        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+method用Post显示目标资源不允许

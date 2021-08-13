@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.infra.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.hand.api.controller.dto.OrderReturnDTO">
+        <result column="order_number" property="orderNumber" />
+        <result column="company_name" property="companyName"/>
+        <result column="customer_name" property="customerName" />
+        <result column="order_date" property="orderDate"/>
+        <result column="order_status" property="orderStatus" />
+        <result column="order_quantity" property="orderQuantity" />
+        <result column="unit_selling_price" property="unitSellingPrice" />
+        <result column="order_amount" property="orderAmount" />
+        <result column="so_header_id" property="soHeaderId"/>
+    </resultMap>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        hse.so_header_id,
+        hse.order_number,
+        hc.company_name,
+        hcu.customer_name,
+        hse.order_date,
+        hse.order_status,
+        hsl.order_quantity,
+        hsl.unit_selling_price,
+        (hsl.order_quantity*hsl.unit_selling_price) as lineAmount
+        from hodr_so_header hse left join hodr_customer hcu on hse.customer_id = hcu.customer_id
+        left join hodr_company hc on hse.company_id = hc.company_id
+        left join hodr_so_line hsl on hse.so_header_id = hsl.so_header_id
+        left join hodr_item hi on hsl.item_id = hi.item_id
+        <where>
+            <if test="companyId != null and companyId != '' ">
+                and hc.company_id = #{companyId}
+            </if>
+            <if test="customerId != null and customerId != ''">
+                and hcu.customer_id = #{customerId}
+            </if>
+            <if test="orderNumber != null and orderNumber != ''">
+                and hse.order_number like concat(concat('%',#{orderNumber}),'%')
+            </if>
+            <if test="itemId != null and itemId != '' ">
+                and hi.item_id = #{itemId}
+            </if>
+            <if test="orderStatus != null and orderStatus != ''">
+                and hse.order_status = #{orderStatus}
+            </if>
+        </where>
+    </select>
+
+    <select id="orderSummaryQuery" resultMap="BaseResultMap">
+        SELECT
+	dd.order_number '销售订单号',
+	dd.company_name AS '公司名称',
+	dd.customer_name AS '客户名称',
+	dd.order_date AS '订单日期',
+	dd.dd.order_status AS '订单状态',
+	hodr_so_line.unit_selling_price * hodr_so_line.order_quantity AS '订单金额'
+FROM
+	(
+	SELECT
+		bb.so_header_id,
+		bb.order_number,
+		bb.company_name,
+		bb.customer_id,
+		bb.order_date,
+		bb.order_status,
+		cc.customer_name
+	FROM
+		(
+		SELECT
+			aa.so_header_id,
+			aa.order_number,
+			hodr_company.company_name,
+			aa.customer_id,
+			aa.order_date,
+			aa.order_status
+		FROM
+			(
+			SELECT
+				*
+			FROM
+				`hodr_so_header`
+			WHERE
+				<where>
+                    <if test="">
+                        hodr_so_header.company_id = 1
+                    </if>
+                    <if test="">
+                    AND hodr_so_header.customer_id = 11
+                    </if>
+                    <if test="">
+                    AND hodr_so_header.order_number LIKE concat(concat('%',#{orderNumber}),'%')
+                    </if>
+                    <if test="">
+                    AND hodr_so_header.order_status = 1
+                    </if>
+                </where>
+			) AS aa
+			LEFT JOIN hodr_company ON aa.company_id = hodr_company.company_id
+		) AS bb
+		LEFT JOIN ( SELECT hodr_customer.customer_id, hodr_customer.customer_name FROM hodr_customer ) AS cc ON bb.customer_id = cc.customer_id
+	) AS dd
+	LEFT JOIN hodr_so_line ON dd.so_header_id = hodr_so_line.so_header_id
+    </select>
+</mapper>

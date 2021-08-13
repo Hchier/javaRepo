@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring5-aop01" />
+        <module name="spring5-appconfig01" />
+        <module name="spring5-dl01" />
+        <module name="spring5-proxy01" />
+        <module name="javase-reflection01" />
+        <module name="spring5-Autowired01" />
+        <module name="spring5-annotation01" />
+        <module name="spring5-Autowired02" />
+        <module name="spring5-ioc01" />
+        <module name="spring5-scopes01" />
+        <module name="javase-annotation01" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="javase-annotation01" target="1.5" />
+      <module name="javase-reflection01" target="1.5" />
+      <module name="Spring5" target="1.5" />
+      <module name="spring5-annotation01" target="1.5" />
+      <module name="spring5-aop01" target="1.5" />
+      <module name="spring5-appconfig01" target="1.5" />
+      <module name="spring5-Autowired01" target="1.5" />
+      <module name="spring5-Autowired02" target="1.5" />
+      <module name="spring5-dl01" target="1.5" />
+      <module name="spring5-ioc01" target="1.5" />
+      <module name="spring5-proxy01" target="1.5" />
+      <module name="spring5-scopes01" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

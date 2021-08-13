@@ -1,0 +1,85 @@
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://db.hzero.org:3306/hzero_order_201931073227?useUnicode=true&characterEncoding=utf-8&useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:hzero}
+    password: ${SPRING_DATASOURCE_PASSWORD:hzero}
+
+#    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/hzero_order_201931073227?useUnicode=true&characterEncoding=utf-8&useSSL=false}
+#    username: root
+#    password: pyh903903
+
+  application:
+    #name: hzero-todo-service-1931073227
+    name: hzero-order
+    #name: hzero-order-201931073227
+
+# MyBatis Mapper 扫描
+mybatis:
+  mapperLocations: classpath*:/mapper/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+hzero:
+#  service:
+#    current:
+#      name: htdo
+#      path: /todo/**
+#      service-name: hzero-order-1931073227
+  lov:
+    sql:
+      enabled: true
+
+eureka:
+  instance:
+    # 以IP注册到注册中心
+    preferIpAddress: ${EUREKA_INSTANCE_PREFER_IP_ADDRESS:true}
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+    # 服务的一些元数据信息
+    metadata-map:
+      VERSION: 0.11.0
+      developer: S-201931073227
+  client:
+    serviceUrl:
+      # 注册中心地址，多个用逗号隔开
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://dev.hzero.org:8000/eureka}
+    registryFetchIntervalSeconds: 10
+    disable-delta: true
+
+# 日志配置
+logging:
+  level:
+    org.hzero: ${LOG_LEVEL:debug}
+    org.apache.ibatis: ${LOG_LEVEL:debug}
+    io.choerodon: ${LOG_LEVEL:debug}
+
+info:
+  name: 裴
+
+
+
+#redis:
+#  # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
+#  database: 0
+#  # redis服务器地址（默认为loaclhost）
+#  host: loaclhost
+#  # redis端口（默认为6379）
+#  port: 6379
+#  # redis访问密码（默认为空）
+#  password: 123456
+#  # redis连接超时时间（单位毫秒）
+#  timeout: 5000
+#  # redis连接池配置
+#  pool:
+#    # 最大可用连接数（默认为8，负数表示无限）
+#    max-active: 8
+#    # 最大空闲连接数（默认为8，负数表示无限）
+#    max-idle: 8
+#    # 最小空闲连接数（默认为0，该值只有为正数才有用）
+#    min-idle: 0
+#    # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+  redis:
+    host: ${SPRING_REDIS_HOST:redis.hzero.org}
+    port: ${SPRING_REDIS_PORT:6379}
+    database: ${SPRING_REDIS_DATABASE:1}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--自定义属性data-开头-->
+<div class="div1" data-index="1" data-abc-def="2"></div>
+<div class="div2"></div>
+
+<script>
+    //element.attribute   获得内置属性
+    //element.getAttribute('attribute')   获得自定义属性
+    console.log(document.querySelector('.div1').getAttribute('class'))
+
+    //element.attribute='value' 设置内置属性
+    //element.setAttribute('attribute','value')  设置自定义属性
+    document.querySelectorAll('.div2')[0].setAttribute('id', 'div2_id')
+    //element.removeAttribute  移除属性
+
+    //获得自定义属性
+    console.log(document.querySelector('.div1').dataset.index)
+    console.log(document.querySelector('.div1').dataset['index'])
+
+    //自定义属性有多个单词连接而成，获得属性时用驼峰命名
+    console.log(document.querySelector('.div1').dataset.abcDef)
+</script>
+</body>
+</html>

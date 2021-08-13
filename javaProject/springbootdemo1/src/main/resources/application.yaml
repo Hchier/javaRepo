@@ -1,0 +1,4 @@
+# 给类赋值，若 写为 User，报错
+user:
+  username:
+  password: pyh903903

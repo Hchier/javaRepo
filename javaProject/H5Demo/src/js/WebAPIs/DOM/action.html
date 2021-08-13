@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>action</title>
+</head>
+<body>
+<input type="button" id="button1" value="button1">
+<div class="div">123</div>
+
+<script>
+    let button1 = document.getElementById('button1')
+    //事件源.事件类型 = 事件处理程序
+    button1.onclick = function () {
+        alert('button1')
+    }
+    let div = document.querySelector('div')
+    div.onclick = function () {
+        console.log('div')
+    }
+</script>
+
+</body>
+</html>

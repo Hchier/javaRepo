@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="employee" class="IOCdemo.autoWire.Employee" autowire="byName">
+<!--        <property name="department" ref="department" ></property>-->
+    </bean>
+
+    <bean name="department" class="IOCdemo.autoWire.Department">
+
+    </bean>
+</beans>

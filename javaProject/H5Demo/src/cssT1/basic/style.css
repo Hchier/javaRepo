@@ -1,0 +1,13 @@
+div {
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+    text-align: left;
+    text-decoration: underline;
+    /*text-decoration: line-through;*/
+    /*text-decoration: overline*/
+    text-indent: 2em;
+    line-height: 50px;
+}
+img{
+
+}

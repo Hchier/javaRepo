@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cssadded</title>
+    <style>
+        /*类选择 属性选择 伪类选择 权重均为10*/
+
+        /*一，属性选择*/
+        /*1,属性选择，选择含placeholder属性的input标签*/
+        input[placeholder] {
+            color: red;
+        }
+
+        /*2,属性选择基础上选择属性值为某值的标签*/
+        input[type=password] {
+            color: lightskyblue;
+        }
+
+        /*3,具有class属性且以input开头的input标签*/
+        input[class^=input] {
+            color: yellow;
+        }
+
+        /*4,具有class属性且以input结尾的input标签*/
+        input[class$=input] {
+            color: green;
+        }
+
+        /*5,具有class属性且包含值为input的input标签*/
+        input[class*=input] {
+            color: red;
+        }
+
+
+        /*二，结构伪类 权重为12*/
+
+        /*选择第一个li孩子*/
+        ul li:first-child {
+            background-color: lightskyblue;
+        }
+
+        /*选择最后一个li孩子*/
+        ul li:last-child {
+            background-color: red;
+        }
+
+        /*选择第n个li孩子*/
+        ul li:nth-child(2) {
+            background-color: darkmagenta;
+        }
+
+        /*选择奇数li孩子*/
+        ul li:nth-child(odd) {
+            background-color: white;
+        }
+
+        /*选择偶数li孩子*/
+        ul li:nth-child(even) {
+            background-color: #9e9e9e;
+        }
+
+        /*选择ol的所有li孩子，n从0开始n++ */
+        ol li:nth-child(n) {
+            background-color: lightskyblue;
+        }
+
+        /*选择ol的所有偶数li孩子（2n+1则为选择奇数孩子，n+3：从第三个开始，-n+5：前5个）*/
+        ol li:nth-child(2n) {
+            background-color: lawngreen;
+        }
+
+        /*选择div中的1st子*/
+        section div:nth-of-type(1) {
+            background-color: lightskyblue;
+        }
+
+        /*选择所子中的1st子，由于1st子为p，与要求的div不同，故不选择任何子*/
+        section div:nth-child(1) {
+            background-color: lightskyblue;
+        }
+
+
+        /*三，伪元素选择器*/
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: lightskyblue;
+        }
+        /*放在内容前面，  权重为2*/
+        div::before {
+            content: "你";
+        }
+        /*放在内容后面*/
+        div::after{
+            content: "啊";
+        }
+
+    </style>
+</head>
+<body>
+
+<input type="text" placeholder="111">
+<input type="password" placeholder="222">
+<input type="text">
+<input class="input1">
+<input class="input2">
+<input class="input3">
+<input class="1input">
+<input class="2input">
+<input class="3input">
+
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<ol>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ol>
+
+
+<!--<section>-->
+<!--    <p>p1</p>-->
+<!--    <div>div1</div>-->
+<!--    <div>div2</div>-->
+<!--</section>-->
+<br><br><br>
+
+<div class="div1">
+    好
+</div>
+
+</body>
+</html>

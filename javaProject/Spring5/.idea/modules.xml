@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Spring5.iml" filepath="$PROJECT_DIR$/.idea/Spring5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javase-annotation01/javase-annotation01.iml" filepath="$PROJECT_DIR$/javase-annotation01/javase-annotation01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javase-reflection01/javase-reflection01.iml" filepath="$PROJECT_DIR$/javase-reflection01/javase-reflection01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-Autowired01/spring5-Autowired01.iml" filepath="$PROJECT_DIR$/spring5-Autowired01/spring5-Autowired01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-Autowired02/spring5-Autowired02.iml" filepath="$PROJECT_DIR$/spring5-Autowired02/spring5-Autowired02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-annotation01/spring5-annotation01.iml" filepath="$PROJECT_DIR$/spring5-annotation01/spring5-annotation01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-aop01/spring5-aop01.iml" filepath="$PROJECT_DIR$/spring5-aop01/spring5-aop01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-appconfig01/spring5-appconfig01.iml" filepath="$PROJECT_DIR$/spring5-appconfig01/spring5-appconfig01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-dl01/spring5-dl01.iml" filepath="$PROJECT_DIR$/spring5-dl01/spring5-dl01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-ioc01/spring5-ioc01.iml" filepath="$PROJECT_DIR$/spring5-ioc01/spring5-ioc01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-proxy01/spring5-proxy01.iml" filepath="$PROJECT_DIR$/spring5-proxy01/spring5-proxy01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring5-scopes01/spring5-scopes01.iml" filepath="$PROJECT_DIR$/spring5-scopes01/spring5-scopes01.iml" />
+    </modules>
+  </component>
+</project>

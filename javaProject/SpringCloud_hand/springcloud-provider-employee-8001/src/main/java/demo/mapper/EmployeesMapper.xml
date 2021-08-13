@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.mapper.EmployeesMapper">
+    <insert id="addEmployees" parameterType="pojo.hand_employees">
+        insert into hand_employees values(#{employee_id},#{employee_num},#{first_name},#{last_name},#{sex},#{phone_num},#{email},#{hire_date},#{department_id},#{status_code})
+
+    </insert>
+    <select id="selectAll" resultType="pojo.hand_employees">
+        select * from hand_employees
+    </select>
+
+    <select id="selectById" parameterType="String" resultType="pojo.hand_employees">
+        select * from hand_employees where employee_id=#{employee_id}
+    </select>
+
+    <update id="update" parameterType="pojo.Update">
+        update hand_employees
+        <set>
+            employee_num=#{result}
+        </set>
+        where employee_id = #{shackles}
+    </update>
+</mapper>

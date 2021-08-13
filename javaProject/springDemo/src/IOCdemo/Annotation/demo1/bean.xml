@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--加名称空间context-->
+
+    <context:component-scan base-package="IOCdemo.Annotation.demo1" use-default-filters="false">
+        <!--只扫描@Component-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"></context:include-filter>
+    </context:component-scan>
+
+<!--    <context:component-scan base-package="IOCdemo.Annotation.demo1">-->
+<!--        &lt;!&ndash;不扫描@Component&ndash;&gt;-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"></context:exclude-filter>-->
+<!--    </context:component-scan>-->
+
+</beans>

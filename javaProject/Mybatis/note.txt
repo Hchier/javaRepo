@@ -1,0 +1,1 @@
+xml中有中文注释报错：将encoding从"UTF-8"改为 "UTF8"

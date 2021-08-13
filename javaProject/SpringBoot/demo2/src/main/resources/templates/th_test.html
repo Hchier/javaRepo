@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" th:href="@{th_test.css}">
+</head>
+<body>
+<!--所有的html元素都可以被thymeleaf接管-->
+template test <br>
+<h1 th:text="${result1}"></h1>
+<p th:utext="${result2}"></p>
+<!--遍历-->
+<p th:each="user:${users}" th:text="${user}"></p>
+<div class="div1">div1</div>
+
+<a href="test2.html">test2</a>
+</body>
+</html>

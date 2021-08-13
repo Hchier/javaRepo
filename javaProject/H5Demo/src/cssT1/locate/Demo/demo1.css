@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+.center {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.borderline {
+    border: red 1px solid;
+}
+
+
+.header {
+    overflow: hidden;
+}
+
+.logo {
+    float: left;
+}
+
+.nav {
+    float: left;
+    /*margin-left: 100px;*/
+}
+
+a:hover {
+    background-color: lightskyblue;
+    /*border-bottom: black 3px solid;*/
+}
+
+.nav li {
+    float: left;
+    margin: 20px 5px 20px 5px;
+}
+
+.nav li a {
+    display: inline-block;
+    /*用padding 内容撑开盒子*/
+    padding: 5px 15px;
+    text-decoration: none;
+}
+
+.header .input {
+    float: left;
+    height: 40px;
+    /*margin-top: 0px;*/
+    /*margin: 20px 5px 20px 200px;*/
+    margin: 16px 5px 20px 5px;
+    background-color: lightskyblue;
+}
+
+.header .input .text {
+    float: left;
+    height: 38px;
+    width: 250px;
+    margin-top: 0px;
+    border: 1px lightskyblue solid;
+}
+
+.header .input .button {
+    float: left;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: lightskyblue;
+}
+
+.header .input:hover {
+    background-color: lightskyblue;
+}
+
+.header .user {
+    float: right;
+    margin: 20px 5px 20px 5px;
+}
+
+.header .user a {
+    display: inline-block;
+    padding: 5px 15px;
+    border: red 1px solid;
+}
+
+
+.banner {
+    overflow: hidden;
+}
+.banner .leftnav{
+    float: left;
+    width: 210px;
+    /*background-color: lightskyblue;*/
+}
+
+.banner li{
+    width: 200px;
+    height: 60px;
+}
+
+.banner li a{
+    /*转成块元素，增大点击面积（整个li内）*/
+    display: block;
+    line-height: 60px;
+    margin-left: 20px;
+}
+
+.banner .ad{
+    position: relative;
+    float: left;
+    width: 780px;
+    height: 370px;
+    background-color: lightskyblue;
+}
+
+.banner .ad .noright{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top:-25px;
+}
+
+.banner .ad .left{
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top:-25px;
+}
+
+/*.banner .ad .adnav{*/
+/*    position: absolute;*/
+/*    bottom: 10px;*/
+/*    right: 50%;*/
+/*    margin-right: -85px;*/
+/*}*/
+
+.banner .ad .adnav{
+    position: absolute;
+    height: 40px;
+    width: 180px;
+    background-color: rgba(255,255,255,0.5);
+    bottom: 10px;
+    right: 50%;
+    margin-right: -90px;
+}
+
+.banner .ad .adnav li{
+    z-index: 5;
+    float: left;
+    margin: 8px 18px 2px 18px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+
+}
+a:hover {
+    background-color: lightskyblue;
+    /*border-bottom: black 3px solid;*/
+}
+
+
+.other {
+    height: 80px;
+}
+
+
+.other li{
+    float: left;
+    margin: 25px 20px 20px 20px;
+}
+
+.other li a{
+    display: block;
+    padding:5px 10px;
+}
+
+.box {
+    /*height: 1000px;*/
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+    border: red 1px solid;
+}
+
+.box li {
+    float: left;
+    height: 240px;
+    width: 240px;
+    margin: 3px 3px 3px;
+}
+
+.box .first {
+    height: 80px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.footer {
+    height: 300px;
+}
+
+.footer .links{
+    margin-right: 50px;
+    float: right;
+    border: red 1px solid;
+}
+
+.footer .links a{
+    display: block;
+    padding: 5px 20px;
+}

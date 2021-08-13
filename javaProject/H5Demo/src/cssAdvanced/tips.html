@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input, textarea {
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .img2, textarea {
+            /*只对行内或行内块有效*/
+            vertical-align: middle;
+        }
+
+        .div3 {
+            border: red 1px solid;
+        }
+
+        .img3 {
+            /*图片底部有空白：行内块与文字base对齐。改为和bottom对齐or把图片改为块级*/
+            vertical-align: bottom;
+        }
+
+        .div4{
+            /*单行文字溢出 省略号显示*/
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 200px;
+            height: 100px;
+            background-color: lightskyblue;
+            /*不换行，强制一行显示*/
+            white-space: nowrap;
+            overflow: hidden;
+
+            /*文字溢出了，用省略号显示*/
+            text-overflow: ellipsis;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul>
+    <li style="cursor: default">小白</li>
+    <li style="cursor: pointer">小手</li>
+    <li style="cursor: move">移动</li>
+    <li style="cursor: text">文本</li>
+    <li style="cursor: not-allowed">禁止</li>
+    <li style="cursor: none">没有</li>
+</ul>
+
+<input type="text" value="去掉点击时的边框线">
+<textarea name="" id="" cols="30" rows="10">防止文本域拉拽</textarea>防止文本域拉拽
+<br>
+<img class="img2" src="pic/abcd.jpg" height="200" width="200"/> 相对图片中线对齐
+<br>
+<div class="div3">
+    <img class="img3" src="pic/abcd.jpg" height="200" width="200"/>jp
+</div>
+
+<div class="div4">addddddddddddddddaaaaaaaaaaadddddddaaa</div>
+</body>
+</html>

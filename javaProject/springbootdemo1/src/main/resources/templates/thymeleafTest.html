@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>welcome</h1>
+<h1>thymeleafTest</h1>
+
+<!--所有html元素都可以被thymeleaf接管-->
+<!--取变量-->
+<h1 th:text="${username}"></h1>
+<!--遍历取值-->
+<h1 th:each="user:${users}" th:text="${user}"></h1>
+</body>
+</html>

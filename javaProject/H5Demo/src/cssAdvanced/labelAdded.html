@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>added</title>
+    <style>
+        header{
+            height: 100px;
+            border:red 1px solid;
+        }
+        audio{
+            width: 800px;
+        }
+        /*更改提示字段颜色*/
+        input::placeholder{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<header></header>
+<audio src="audio/太阳照常升起.mp3" autoplay="" controls="controls" muted="muted"></audio>
+
+<form action="">
+    <ul>
+<!--        autofocus自动获得焦点-->
+        <li>email<input type="email" autofocus="autofocus"></li>
+<!--        autocomplete="off"不记录之前输入的内容-->
+        <li>url<input type="url" autocomplete="off"></li>
+        <li>date<input type="date"></li>
+        <li>time<input type="time"></li>
+        <li>number<input type="number"></li>
+        <li>tel<input type="tel"></li>
+        <!--/*required 必须填内容  placeholder提示文本*/-->
+        <li>search<input type="search"  required="required" placeholder="提示"></li>
+        <li>color<input type="color"></li>
+<!--        multiple同时可选择多个文件-->
+        <li><input type="file" multiple="multiple"></li>
+        <li>submit<input type="submit"></li>
+    </ul>
+</form>
+
+</body>
+</html>

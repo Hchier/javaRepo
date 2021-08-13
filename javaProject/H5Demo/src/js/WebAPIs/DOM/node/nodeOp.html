@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul class="ul">
+    <li id="li1">li1</li>
+    <li id="li2">li2</li>
+    <li id="li3">li3</li>
+</ul>
+
+<script>
+    console.log(document.querySelector('.ul'))
+    let li1=document.querySelector('#li1')
+    //得到离元素最近的父节点
+    console.log(li1.parentNode)
+
+    let ul=document.querySelector('.ul');
+    //得到所有子节点（元素节点和文本节点） nodeType为1,为元素节点。3为文本节点
+    console.log('ul.childNodes',ul.childNodes)
+    //只获得元素节点
+    console.log('ul.children',ul.children)
+    //获得第一个元素子节点
+    console.log(ul.firstElementChild)
+    //获得第一个元素子节点 兼容性问题
+    console.log(ul.firstElementChild)
+    //
+    console.log(ul.children[2]);
+    //下一个兄弟元素节点   priviousElementSibling 上一个
+    console.log('li1.nextElementSibling',li1.nextElementSibling)
+
+</script>
+
+
+</body>
+</html>

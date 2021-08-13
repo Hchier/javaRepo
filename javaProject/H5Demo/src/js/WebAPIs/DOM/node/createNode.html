@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>123</li>
+</ul>
+
+<script>
+    //在ul中创建li（追加）
+    let ul=document.getElementsByTagName('ul')[0];
+    let li=(document.createElement('li'));
+    ul.appendChild(li);
+    //node.insertBefore(child,指定元素)   前面插入
+    //若写成ul.insertBefore(li,ul.children[0])，之前append的li消失
+    ul.insertBefore(document.createElement('li'),ul.children[0])
+</script>
+
+</body>
+</html>

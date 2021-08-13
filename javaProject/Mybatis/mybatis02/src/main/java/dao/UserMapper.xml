@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserMapper">
+<!--    <resultMap id="UserMap" type="pojo.User">-->
+<!--        &lt;!&ndash; column是数据库表的列名 , property是对应实体类的属性名 &ndash;&gt;-->
+<!--        <result column="username" property="name"/>-->
+<!--        <result column="password" property="password"/>-->
+<!--    </resultMap>-->
+
+    <select id="selectUser" resultType="pojo.User">
+    select * from user
+    </select>
+    <select id="addUser" parameterType="pojo.User">
+    insert into user values(#{username},#{password})
+    </select>
+
+    <!--    <select id="selectByUsername" resultType="pojo.User" parameterType="String">-->
+    <!--        select * from user where username = #{suibianxiedouxing}-->
+    <!--    </select>-->
+
+
+
+    <select id="selectByUsername" resultMap="UserMap" parameterType="String">
+        select * from user where username = #{username}
+    </select>
+
+
+</mapper>

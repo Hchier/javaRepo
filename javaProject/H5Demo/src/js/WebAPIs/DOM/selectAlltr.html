@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selectalltr</title>
+    <style>
+        table {
+
+        }
+    </style>
+</head>
+<body>
+
+<table border="1px" cellspacing="0" cellpadding="5px">
+    <thead>
+    <tr>
+        <th><input type="checkbox" id="check_all"></th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox" class="checkbox"></td>
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="checkbox"></td>
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" class="checkbox"></td>
+        <td>td</td>
+        <td>td</td>
+        <td>td</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    let check_all = document.getElementById('check_all');
+    let checkbox_list = document.getElementsByClassName('checkbox')
+    check_all.onclick = function () {
+        //console.log(check_all.checked)
+        for (let i = 0; i < checkbox_list.length; i++) {
+            checkbox_list[i].checked = check_all.checked;
+        }
+    }
+    for (let i = 0; i < checkbox_list.length; i++) {
+        checkbox_list[i].onclick = function () {
+            let flag = true;
+            for (let j = 0; j < checkbox_list.length; j++) {
+                //不能是 if (checkbox_list[j].checked == 'false')!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                if (checkbox_list[j].checked == false) {
+                    flag = false;
+                    break;
+                }
+            }
+            check_all.checked = flag;
+        }
+    }
+
+</script>
+
+</body>
+</html>

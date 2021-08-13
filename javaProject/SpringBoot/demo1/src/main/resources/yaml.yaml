@@ -1,0 +1,15 @@
+# 存值
+username: Hchier
+
+# 存对象
+user:
+  username: Hchier
+  password: pyh
+
+# 数组
+pets1:
+  - cat
+  - dog
+  - lion
+
+pets2: [cat, dog, pig]

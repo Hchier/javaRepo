@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.borderline {
+    border: red 1px solid;
+}
+
+
+.header {
+    overflow: hidden;
+}
+
+.logo {
+    float: left;
+}
+
+.nav {
+    float: left;
+    /*margin-left: 100px;*/
+}
+
+a:hover {
+    background-color: lightskyblue;
+    /*border-bottom: black 3px solid;*/
+}
+
+.nav li {
+    float: left;
+    margin: 20px 5px 20px 5px;
+}
+
+.nav li a {
+    display: inline-block;
+    /*用padding 内容撑开盒子*/
+    padding: 5px 15px;
+    text-decoration: none;
+}
+
+.header .input {
+    float: left;
+    height: 40px;
+    /*margin-top: 0px;*/
+    /*margin: 20px 5px 20px 200px;*/
+    margin: 16px 5px 20px 5px;
+    /*background-color: lightskyblue;*/
+}
+
+.header .input .text {
+    float: left;
+    height: 38px;
+    width: 250px;
+    margin-top: 0px;
+    border: 1px lightskyblue solid;
+}
+
+.header .input .button {
+    float: left;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: lightskyblue;
+
+}
+
+.header .input .text:focus {
+    background-color: #deffff;
+}
+
+.header .user {
+    float: right;
+    margin: 20px 5px 20px 5px;
+}
+
+.header .user a {
+    display: inline-block;
+    padding: 5px 15px;
+    border: red 1px solid;
+    text-decoration: none;
+}
+
+
+.banner {
+
+}
+
+.banner li{
+    width: 200px;
+    height: 60px;
+}
+
+.banner li a{
+    /*转成块元素，增大点击面积（整个li内）*/
+    display: block;
+    line-height: 60px;
+    margin-left: 30px;
+}
+a:hover {
+    background-color: lightskyblue;
+    /*border-bottom: black 3px solid;*/
+}
+
+
+.other {
+    height: 80px;
+}
+
+
+.other li{
+    float: left;
+    margin: 25px 20px 20px 20px;
+}
+
+.other li a{
+    display: block;
+    padding:5px 10px;
+}
+
+.box {
+    /*height: 1000px;*/
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+    border: red 1px solid;
+}
+
+.box li {
+    float: left;
+    height: 240px;
+    width: 240px;
+    margin: 3px 3px 3px;
+}
+
+.box .first {
+    height: 80px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.footer {
+    height: 300px;
+}
+
+.footer .links{
+    margin-right: 50px;
+    float: right;
+    border: red 1px solid;
+}
+
+.footer .links a{
+    display: block;
+    padding: 5px 20px;
+}

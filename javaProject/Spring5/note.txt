@@ -1,0 +1,16 @@
+默认使用无参构造，可以使用有参构造
+使用property装配值时相关变量必须有set方法，利用set进行注入
+有参构造：
+    1,通过index下标注入值
+    2,通过变量名注入值
+alias:别名
+
+复杂类型的注入
+
+p c命名空间
+
+自动装配
+
+作用域
+
+Autowired先byName，再byType，如果还不行，再加@Qualifier(value = "")

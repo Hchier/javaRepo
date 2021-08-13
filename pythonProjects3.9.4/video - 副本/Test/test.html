@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- rem -->
+  <script>
+    document.head.innerHTML +=
+      `
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=0" name="viewport">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+<meta name="keywords" content="check">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">`
+    setTimeout(() => {
+      (function (designWidth, maxWidth) {
+        var doc = document,
+          win = window,
+          docEl = doc.documentElement,
+          remStyle = document.createElement("style"),
+          tid;
+        function refreshRem() {
+          document.documentElement.getBoundingClientRect().width
+          var width = docEl.getBoundingClientRect().width;
+          width < 300 && (width = 300)
+          maxWidth = maxWidth || 540;
+          width > maxWidth && (width = maxWidth);
+          var rem = width * 100 / designWidth;
+          remStyle.innerHTML = 'html{font-size:' + rem * 2 + 'px !important;}';
+        }
+        if (docEl.firstElementChild) {
+          docEl.firstElementChild.appendChild(remStyle);
+        } else {
+          var wrap = doc.createElement("div");
+          wrap.appendChild(remStyle);
+          doc.write(wrap.innerHTML);
+          wrap = null;
+        }
+        //要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+        refreshRem();
+
+        win.addEventListener("resize", function () {
+          clearTimeout(tid); //防止执行两次
+          tid = setTimeout(refreshRem, 100);
+        }, false);
+
+        win.addEventListener("pageshow", function (e) {
+          if (e.persisted) { // 浏览器后退的时候重新计算
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 100);
+          }
+        }, false);
+      })(750, 750);
+    })
+  </script>
+  <div style="width: 300px;height: 300px;" id="box"></div>
+  <div onclick="begin()">开始</div>
+  <div onclick="photograph()">拍照</div>
+  <div onclick="stops()">停止</div>
+  <!-- 扫码拍照 -->
+  <script>
+    'user strict'
+class webQr {
+  data() {
+    this.gCtx = null // canvas对象
+    this.gCanvas = null // canvas
+    this.gUM = false // 是否有效
+    this.v = null // video
+    this.w = 0 // video宽
+    this.w2 = 0 // 播放视频宽
+    this.h = 0
+    this.h2 = 0
+    this.d = 3 // 清晰度
+    this.base64 = null
+    this.div = null
+    this.srcObjectm = null
+  }
+  // 初始化
+  init(el) {
+    this.data()
+    this.stop()
+    var options = {
+      deviceId: 'default',
+      facingMode: 'user',
+    };
+    this.h = el.clientHeight
+    this.w = el.clientWidth
+    this.div = document.createElement('div')
+    this.div.style.position = 'absolute'
+    this.div.style.overflow = 'hidden'
+    this.div.style.borderRadius = '100%'
+    this.div.style.width = 0 + 'px'
+    this.div.height = 0 + 'px'
+    this.v = document.createElement('video')
+    this.v.style.width = this.w + 'px'
+    this.v.style.height = this.h + 'px'
+    this.v.autoplay = true
+    this.v.style.transform = 'rotateY(180deg)'
+    el.innerHTML = ''
+    el.appendChild(this.div)
+    this.div.appendChild(this.v)
+    this.v.addEventListener('play', () => {
+    	if (this.v.videoWidth){
+    		this.gCanvas = document.createElement('canvas')
+            this.gCanvas.style.display = 'none'
+            if (this.v.videoWidth) {
+              let w = this.v.videoWidth
+              let h = this.v.videoHeight
+              if (this.w / w > this.h / h) {
+                this.h2 = this.h
+                this.w2 = Math.round((this.h2 * w) / h)
+              } else {
+                this.w2 = this.w
+                this.h2 = Math.round((this.w2 * h) / w)
+              }
+              let x = 0
+              // let div1 = document.createElement('div')
+              // let div2 = document.createElement('div')
+              let img = document.createElement('img')
+              img.style.position = 'absolute'
+              // div1.style.position = 'absolute'
+              // div1.style.backgroundColor = 'rgba(0,0,0,0.4)'
+              // div2.style.position = 'absolute'
+              // div2.style.backgroundColor = 'rgba(0,0,0,0.4)'
+              if (this.w2 > this.h2) {
+                let w = (this.w2 - this.h2) / 2
+                // img.style.top = Math.round((this.h - this.h2) / 2) + 'px'
+                // img.style.left = w + 'px'
+                this.div.style.top = Math.round((this.h - this.h2) / 2) + 'px'
+                this.div.style.left = w + 'px'
+//                div1.style.width = w + 'px'
+//                div1.style.left = 0
+//                div1.style.top = 0
+//                div1.style.height = '100%'
+//                div2.style.width = w + 'px'
+//                div2.style.right = 0
+//                div2.style.top = 0
+//                div2.style.height = '100%'
+                x = this.h2
+              } else {
+                let h = (this.h2 - this.w2) / 2
+                // img.style.left = Math.round((this.w - this.w2) / 2) + 'px'
+                // img.style.top = h + 'px'
+                this.div.style.left = Math.round((this.w - this.w2) / 2) + 'px'
+                this.div.style.top = h + 'px'
+//                div1.style.width = '100%'
+//                div1.style.left = 0
+//                div1.style.top = 0
+//                div1.style.height = h + 'px'
+//                div2.style.width = '100%'
+//                div2.style.left = 0
+//                div2.style.bottom = 0
+//                div2.style.height = h + 'px'
+                x = this.w2
+              }
+              img.src = 'data:image/png;base64,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'
+              img.height = x
+              img.style.left = 0
+              img.style.top = 0
+              this.div.style.border = '1px solid #409eff'
+              this.v.style.position = 'absolute'
+              this.v.style.top = -(this.h - x)/2 + 'px'
+              this.v.style.left = -(this.w - x)/2 + 'px'
+              this.div.style.width = x + 'px'
+              this.div.style.height = x + 'px'
+              this.div.appendChild(img)
+              // this.div.appendChild(div1)
+              // this.div.appendChild(div2)
+              this.gCanvas.width = x * this.d
+              this.gCanvas.height = x * this.d
+            } else {
+              this.gCanvas.width = this.w * this.d
+              this.gCanvas.height = this.h * this.d
+            }
+            this.gCtx = this.gCanvas.getContext("2d");
+            this.gCtx.clearRect(0, 0, this.w, this.h);
+            el.appendChild(this.gCanvas)
+    	} else {
+    		setTimeout(()=>{
+    			this.v.pause()
+        		setTimeout(()=>{
+        			this.v.play();
+        		},100)
+    		},50)
+    	}
+    })
+    let n = navigator;
+    if (n.mediaDevices && n.mediaDevices.getUserMedia) {
+      n.mediaDevices.getUserMedia({ video: options, audio: false }).
+        then((stream) => {
+          this.success(stream);
+        }).catch((error) => {
+          this.error(error)
+        });
+    } else if (n.getUserMedia) {
+      n.getUserMedia({ video: options, audio: false }, this.success, this.error);
+    } else if (n.webkitGetUserMedia) {
+      n.webkitGetUserMedia({ video: options, audio: false }, this.success, this.error);
+    } else {
+      this.error(2)
+    }
+  }
+  // 视频截图
+  getImg() {
+    if (!this.w2) {
+      let w = this.v.videoWidth
+      let h = this.v.videoHeight
+      if (this.w / w > this.h / h) {
+        this.h2 = this.h
+        this.w2 = Math.round((this.h2 * w) / h)
+      } else {
+        this.w2 = this.w
+        this.h2 = Math.round((this.w2 * h) / w)
+      }
+      let x = Math.round((this.w - this.w2) / 2)
+      let y = Math.round((this.h - this.h2) / 2)
+      this.gCtx.drawImage(this.v, x * this.d, y * this.d, this.w2 * this.d, this.h2 * this.d);
+    } else {
+      let x = 0
+      let y = 0
+      if (this.w2 > this.h2) {
+        x = -Math.round((this.w2 - this.h2) / 2)
+      } else {
+        y = -Math.round((this.h2 - this.w2) / 2)
+      }
+      this.gCtx.drawImage(this.v, x * this.d, y * this.d, this.w2 * this.d, this.h2 * this.d);
+      this.gCtx.translate(this.gCanvas.width, 0)
+      this.gCtx.scale(-1, 1)
+    }
+    this.base64 = this.gCanvas.toDataURL("image/png")
+    return this.base64
+  }
+  // 停止
+  stop() {
+    this.gUM = false
+    if (this.v) {
+      this.v.pause()
+    }
+	if (this.srcObjectm){
+		this.srcObjectm.getTracks().forEach(track => {
+	        track.stop()
+	     })
+	}
+  }
+  // 把图片输出为blob格式
+  getBlob() {
+    if (!this.base64){
+      this.getImg()
+    }
+    var arr = this.base64.split(','), mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], { type: mime }, 'screenshot', { type: 'image/jpeg' });
+  }
+  // 把图片输出成file格式
+  getFile() {
+    return new window.File([this.getBlob()], 'screenshot', { type: 'image/jpeg' })
+  }
+  // 播放视频
+  success(stream) {
+	this.srcObjectm = stream
+    this.v.srcObject = stream;
+    this.v.play();
+    this.gUM = true;
+  }
+  // 报错信息
+  error(error) {
+    this.gUM = false;
+    if (error.toString() === 'NotFoundError: Requested device not found') {
+      alert('未检测到摄像头')
+    } else if (error === 2) {
+      alert('此环境不能调用摄像头拍照！')
+    } else {
+      alert('请允许浏览器调用摄像头！')
+    }
+  }
+}
+  </script>
+  <script>
+    let qr = new webQr()
+    var begin = function() {
+      qr.init(document.getElementById('box'))
+    }
+    var photograph = function() {
+      if (qr.qUM){
+        console.log(b.getFile())
+      }
+    }
+    var stops = function() {
+      if (qr.gUM) {
+        qr.stop()
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

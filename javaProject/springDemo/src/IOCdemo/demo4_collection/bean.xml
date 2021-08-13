@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="IOCdemo.demo4_collection.Student">
+        <!--对象类型list注入-->
+        <property name="courses">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1"></entry>
+                <entry key="key2" value="value2"></entry>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="course1" class="IOCdemo.demo4_collection.Course">
+        <property name="course_name" value="math"></property>
+    </bean>
+
+    <bean id="course2" class="IOCdemo.demo4_collection.Course">
+        <property name="course_name" value="English"></property>
+    </bean>
+
+</beans>

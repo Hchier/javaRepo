@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变化的云彩</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+
+        }
+        section{
+            width: 100%;
+            height: 100%;
+            background: #007fd5;
+            /* 动画 : 动画名称 动画完成时间 速度 循环播放*/
+            animation: bg 10s linear infinite;
+            /*超出区域内容隐藏*/
+            overflow: hidden;
+            display: block;
+            position: relative;
+        }
+        section div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /*设置第一片云*/
+        section div:nth-child(1){
+            background: url("../../img/pic3.jpg");
+            animation: play 10s linear infinite;
+        }
+        /*设置第二片云*/
+        section div:nth-child(2){
+            background: url("../../img/pic3.jpg");
+            animation: play 75s linear infinite;
+        }
+        /*设置第三片云*/
+        section div:nth-child(3){
+            background: url("../../img/pic3.jpg");
+            animation: play 100s linear infinite;
+        }
+        /*改变天气颜色动画*/
+        @keyframes bg{
+            0%{
+                background: #007fd5;
+            }
+            50%{
+                background: #000;
+            }
+            100%{
+                background: #007fd5;
+            }
+
+        }
+        /*设置三片云彩动起来*/
+        @keyframes play {
+            0%{
+                left: 0;
+
+            }
+            100%{
+                left: -200%;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<section>
+    <div></div>
+    <div></div>
+    <div></div>
+</section>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="javaweb-JSP-Demo01" />
+        <module name="javaweb-Filter-Demo01" />
+        <module name="javaweb-session-cookie-Demo01" />
+        <module name="javaweb-session-cookie" />
+        <module name="javaweb-filter" />
+        <module name="javaweb-JSP" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="javaweb-servlet01" target="1.5" />
+      <module name="test" target="1.7" />
+      <module name="test2" target="1.5" />
+      <module name="webtest" target="1.7" />
+      <module name="wrwr" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

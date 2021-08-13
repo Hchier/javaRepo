@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.infra.mapper.SoHeaderMapper">
+
+    <resultMap id="BaseResultMap" type="com.hand.domain.entity.SoHeader">
+        <result column="so_header_id" property="soHeaderId" jdbcType="DECIMAL"/>
+        <result column="order_number" property="orderNumber" jdbcType="VARCHAR"/>
+        <result column="company_id" property="companyId" jdbcType="DECIMAL"/>
+        <result column="order_date" property="orderDate" jdbcType="DATE"/>
+        <result column="order_status" property="orderStatus" jdbcType="VARCHAR"/>
+        <result column="customer_id" property="customerId" jdbcType="DECIMAL"/>
+        <result column="created_by" property="createdBy" jdbcType="DECIMAL"/>
+        <result column="creation_date" property="creationDate" jdbcType="DATE"/>
+        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL"/>
+        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE"/>
+        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMap1" type="com.hand.api.controller.dto.OrderReturnDTO">
+        <result column="order_number" property="orderNumber" />
+        <result column="company_name" property="companyName"/>
+        <result column="customer_name" property="customerName" />
+        <result column="order_date" property="orderDate"/>
+        <result column="order_status" property="orderStatus" />
+        <result column="order_quantity" property="orderQuantity" />
+        <result column="unit_selling_price" property="unitSellingPrice" />
+        <result column="order_amount" property="orderAmount" />
+        <result column="so_header_id" property="soHeaderId"/>
+    </resultMap>
+
+    <select id="orderSummaryQuery" resultType="com.hand.domain.entity.OrderSummaryQuery">
+    	select dd.order_number 'order_number',dd.company_name as 'company_name',dd.customer_name as 'customer_name',dd.order_date as 'order_date',dd.dd.order_status as 'order_status',hodr_so_line.unit_selling_price*hodr_so_line.order_quantity as 'order_price' from (SELECT bb.so_header_id,bb.order_number,bb.company_name,bb.customer_id,bb.order_date,bb.order_status,cc.customer_name from (select aa.so_header_id,aa.order_number,hodr_company.company_name,aa.customer_id,aa.order_date,aa.order_status from  (SELECT * FROM `hodr_so_header` where hodr_so_header.company_id=1 and hodr_so_header.customer_id=11 and hodr_so_header.order_number like '%1%' and hodr_so_header.order_status=1 ) as aa left JOIN hodr_company on aa.company_id=hodr_company.company_id) as bb LEFT JOIN (select hodr_customer.customer_id,hodr_customer.customer_name from hodr_customer) as cc on bb.customer_id=cc.customer_id) as dd LEFT JOIN hodr_so_line on dd.so_header_id=hodr_so_line.so_header_id
+    </select>
+    <select id="selectAllInfo" resultType="com.hand.domain.entity.SoHeader">
+    	select * from hodr_so_header
+    </select>
+
+    <delete id="deleteById">
+        delete from hodr_so_header where hodr_so_header.so_header_id=#{so_header_id}
+    </delete>
+
+<!--    <select id="selectById" resultType="com.hand.domain.entity.SoHeader">-->
+<!--        select * from hodr_so_header where hodr_so_header.so_header_id=#{so_header_id}-->
+<!--    </select>-->
+
+        <select id="selectById" resultMap="BaseResultMap1">
+            select
+            hse.order_number,
+            hc.company_name,
+            hcu.customer_name,
+            hse.order_date,
+            hse.order_status,
+            hsl.unit_selling_price,
+            hse.so_header_id
+            from hodr_so_header hse left join hodr_customer hcu on hse.customer_id = hcu.customer_id
+            left join hodr_company hc on hse.company_id = hc.company_id
+            left join hodr_so_line hsl on hse.so_header_id = hsl.so_header_id
+            left join hodr_item hi on hsl.item_id = hi.item_id
+            <where>
+                hse.so_header_id=#{so_header_id}
+            </where>
+        </select>
+
+    <insert id="insertInfo" parameterType="com.hand.domain.entity.SoHeader">
+        insert into hodr_so_header(so_header_id,order_number,company_id,order_date,order_status,customer_id,created_by,last_updated_by,object_version_number) values(#{soHeaderId},#{orderNumber},#{companyId},'2021-07-29',#{orderStatus},#{customerId},'19','19','1')
+    </insert>
+
+    <update id="updateStatus" >
+        update hodr_so_header set order_status=#{order_status} where so_header_id=#{so_header_id}
+    </update>
+</mapper>

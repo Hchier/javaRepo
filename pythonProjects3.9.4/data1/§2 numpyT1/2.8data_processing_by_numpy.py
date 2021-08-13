@@ -1,0 +1,52 @@
+import numpy as np
+
+print("三元表达式：")
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+arr3 = np.array([True, False, False])
+# 为true输出arr1，否则输出arr2
+print(np.where(arr3, arr1, arr2))
+print()
+
+print("数据统计计算：")
+arr1 = np.arange(10)
+print("arr1")
+print("求和")
+print(arr1.sum())
+print("最小值")
+print(arr1.min())
+print("最大值索引")
+print(arr1.argmax())
+print("累加和")
+print(arr1.cumsum())
+print()
+
+print("数组排序")
+arr2 = np.array([5, 4, 3, 2, 1])
+print(np.sort(arr2))
+print()
+
+print("检查数组元素")
+arr2 = np.array([[5, 4], [2, 1]])
+# 是否有一个大于4
+print(np.any(arr2 > 4))
+# 是否所有均大于4
+print(np.all(arr2 > 4))
+print()
+
+print("唯一化及其他集合逻辑")
+arr2 = np.array([2, 3, 1, 1, 2, 3, 4])
+arr3 = np.array([2, 9, 8, 2, 1, 2, 2])
+print("找唯一值，排序后输出")
+print(np.unique(arr2))
+print("找公共元素")
+print(np.intersect1d(arr2, arr3))
+print("并集")
+print(np.union1d(arr2, arr3))
+print("找x是否包含y")
+print(np.in1d(arr2, arr3))
+print("集合的差，x中有，y无")
+print(np.setdiff1d(arr2, arr3))
+print("集合的对称差：不同时存在与x和y中")
+print(np.setxor1d(arr2, arr3))
+print()

@@ -1,0 +1,26 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: springcloud-zuul
+eureka:
+  client:
+    service-url:  # 监控页面
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/
+  instance:
+    instance-id: zuul9527.com
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    myuser.serviceId: springcloud-provider-user
+    myuser.path: /myuser/**    #使得#//   http://localhost:9527/springcloud-provider-user/user/select/Hchier
+                               #等价于   http://localhost:9527/myuser/user/select/Hchier
+  #ignored-services: springcloud-provider-user # 屏蔽直接访问springcloud-provider-user
+  ignored-services: "*" # 屏蔽所有
+
+
+#//http://localhost:9527/springcloud-provider-user/user/select/Hchier
+info:
+  app.name: zuul9527
+  company.name: Hchier

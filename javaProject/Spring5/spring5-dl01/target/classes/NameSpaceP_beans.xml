@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+       <!--p命名空间注入 直接注入值-->                <!--↓↓↓直接赋值-->
+    <bean class="pojo.NameSpaceP" name="nameSpaceP" p:name="namespace_p"/>
+</beans>

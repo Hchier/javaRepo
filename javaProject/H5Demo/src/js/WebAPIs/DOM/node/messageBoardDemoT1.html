@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MessageBoard</title>
+    <style>
+        .message_board{
+            position: relative;
+            width: 250px;
+            height: 150px;
+        }
+        textarea{
+            position:absolute;
+
+        }
+        #button_OK{
+            position:absolute;
+            top: 40%;
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="message_board">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <input type="button" value="OK" id="button_OK">
+</div>
+
+<div class="message">
+    <ul></ul>
+</div>
+<ul></ul>
+
+<script>
+    let ul=document.querySelectorAll('.message')[0].querySelector('ul');
+    let button_OK=document.getElementById('button_OK');
+    let textarea=document.getElementsByTagName('textarea')[0];
+    button_OK.onclick=function () {
+        let li=document.createElement('li')
+        li.innerHTML=textarea.value;
+        textarea.value='';
+        ul.append(li)
+    }
+    
+</script>
+
+</body>
+</html>

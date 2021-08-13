@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="Computer" class="pojo.Computer">
+        <property name="name" value="my_computer"/>
+        <property name="cpu" value="i5"/>
+    </bean>
+
+    <bean name="Student" class="pojo.Student">
+        <property name="name" value="Hchier"/>
+        <property name="computer" ref="Computer"/>
+        <!--property注入-->
+        <property name="properties">
+            <props merge="true">  <!--合并亲子 bean-->
+                <prop key="A">1</prop>
+                <prop key="B">1</prop>
+            </props>
+        </property>
+        <!--数组注入-->
+        <property name="array">
+            <array>
+                <value>array1</value>
+                <value>array2</value>
+                <value>array3</value>
+            </array>
+        </property>
+        <!--list注入-->
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+                <value>list3</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1"/>
+                <entry key="key2" value="value2"/>
+                <entry key="key3" value="value3"/>
+            </map>
+        </property>
+        <!--设置为null-->
+        <property name="age">
+            <null/>
+        </property>
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+                <value>set3</value>
+            </set>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="cat" class="pojo.Cat"/>
+    <bean name="dog" class="pojo.Dog"/>
+    <!--byType在上下文查找对象属性类型相同的bean-->
+    <!--byName在上下文查找和自己set方法对应的bean-->
+    <!--byName要求name唯一， byType要求type唯一-->
+    <bean name="person" class="pojo.Person" autowire="byType">
+<!--        <property name="cat" ref="cat"/>-->
+<!--        <property name="dog" ref="dog"/>-->
+    </bean>
+</beans>

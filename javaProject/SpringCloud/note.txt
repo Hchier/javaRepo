@@ -1,0 +1,2 @@
+所有的实体类必须实现序列化，否则传输会报错
+Type interface demo.mapper.UserMapper is not known to the MapperRegistry: demo.mapper.xml中的namespace写为

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    <bean id="book" class="IOCdemo.IOC.classes.Book">-->
+    <!--        &lt;!&ndash;通过set&ndash;&gt;-->
+    <!--        <property name="name" value="金刚经"></property>-->
+    <!--        <property name="author" value="鸠摩罗什"></property>-->
+    <!--    </bean>-->
+    <!--p名称空间注入，简化xml配置方式-->
+    <bean id="book" class="IOCdemo.demo1.classes.Book" p:author="刘慈欣" p:name="三体"></bean>
+
+    <bean id="person" class="IOCdemo.demo1.classes.Person">
+        <!--有参构造-->
+        <!--        <constructor-arg name="name" value="PYH"></constructor-arg>-->
+        <!--        <constructor-arg name="age" value="19"></constructor-arg>-->
+        <!--通过index获取参数-->
+        <constructor-arg index="0" value="PYH"></constructor-arg>
+        <!--        包含特殊符号    <![CDATA[       ]]> -->
+        <constructor-arg index="1">
+            <value><![CDATA[<<19>>]]></value>
+        </constructor-arg>
+        <!--设置null-->
+        <constructor-arg name="telephonenumber">
+            <null></null>
+        </constructor-arg>
+    </bean>
+
+</beans>

@@ -1,0 +1,48 @@
+图片加载不出来：把放图片的文件夹标记为 resources
+
+
+location前面加  /
+  <error-page>
+    <error-code>404</error-code>
+    <location>/errorPages/error.jsp</location>
+  </error-page>
+
+
+跳转时forword标签内有注释报错
+<jsp:forward page="/hello">
+<!--    携带参数转到/hello hello页面通过 req.getParameter("username") 拿到参数-->
+    <jsp:param name="username" value="Hchier"/>
+</jsp:forward>
+改为：
+<!--    携带参数转到/hello hello页面通过 req.getParameter("username") 拿到参数-->
+<jsp:forward page="/hello">
+    <jsp:param name="username" value="Hchier"/>
+</jsp:forward>
+
+登录跳转验证表单时网站500：jsp input 中没写name
+
+
+
+-------------------------------------------------------------------------------------------
+<%
+
+    pageContext.setAttribute("name1","111");//保存的数据只在一个页面中有效
+    request.setAttribute("name2", "2");
+    session.setAttribute("name3", "3");
+    application.setAttribute("name4", "4");
+%>
+<%
+
+    String name11 = (String) pageContext.getAttribute("name1");
+    String name2 = (String)pageContext.getAttribute("name2");
+    String name3 = (String)pageContext.getAttribute("name3");
+    String name4 = (String)pageContext.getAttribute("name4");
+%>
+
+${name11} <br>
+${name2} <br>
+${name3} <br>
+${name4} <br>
+
+可以拿到name2，name3，name4，拿不到name11：${name11}改为${name1}（根据setAttribute的key名取值而非后面String的name11）.。。。。。。。
+-------------------------------------------------------------------------------------------

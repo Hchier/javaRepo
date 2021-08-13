@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>float</title>
+    <style>
+
+        *{
+            margin: 0;
+        }
+        .father1{
+            height: 500px;
+            width: 1500px;
+            margin: auto;
+            background-color: lightskyblue;
+        }
+
+        .father1 .div1 {
+            border: red 1px solid;
+            width: 200px;
+            height: 450px;
+            float: left;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .father1 .div2 {
+            border: red 1px solid;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .father1 .div3 {
+            border: red 1px solid;
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+
+        .father1 .div4 {
+            border: red 1px solid;
+            width: 300px;
+            height: 450px;
+
+            float: right;
+        }
+
+        a{
+            display: inline-block;
+            height: 55px;
+            line-height: 55px;
+            font-size: 20px;
+            margin-left: 30px;
+        }
+        a:hover{
+            background-color: black;
+        }
+
+
+        .father2{
+            height: 1000px;
+            width: 1600px;
+            background-color: lightskyblue;
+            margin: auto;
+        }
+
+        .father2>.div1{
+            height: 50px;
+            border: 1px red solid;
+            margin-top: 5px;
+        }
+        .father2>.div2{
+            height: 400px;
+
+            border: 1px red solid;
+            margin: 5px 200px 0;
+
+        }
+        .father2>.div3{
+            height: 150px;
+            border: 1px red solid;
+            margin-top: 5px;
+        }
+
+        .father2>.div2>.div1{
+            height: 100px;
+            border: 1px red solid;
+
+        }
+        .father2>.div2>.div2{
+            height: 100px;
+            border: 1px red solid;
+            margin-top: 5px;
+
+        }
+        .father2>.div2>.div3{
+            height: 180px;
+            border: 1px red solid;
+            margin-top: 5px;
+        }
+
+        .father2>.div2>.div2>.div1{
+            width: 300px;
+            height: 80px;
+            border: 1px red solid;
+            margin: 10px 5px 5px;
+            float: left;
+        }
+
+        .father2>.div2>.div2>.div2{
+            width: 300px;
+            height: 80px;
+            border: 1px red solid;
+            margin: 10px;
+            float: left;
+
+        }
+
+        .father2>.div2>.div2>.div3{
+            width: 300px;
+            height: 80px;
+            border: 1px red solid;
+            margin: 10px 5px 5px;
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="father1">
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4">
+        <a href="#">#RR@#T#$#R#@E#@</a>
+        <a href="#">#RR@#T#$#R#@E#@</a>
+        <a href="#">#RR@#T#$#R#@E#@</a>
+    </div>
+</div>
+<br><br><br><br>
+
+
+<div class="father2">
+    <div class="div1">div1</div>
+    <div class="div2">
+        <div class="div1">div2div1</div>
+        <div class="div2">
+            <div class="div1">div2div2div1</div>
+            <div class="div2">div2div2div2</div>
+            <div class="div3">div2div2div3</div>
+        </div>
+        <div class="div3">
+            div2div3
+        </div>
+    </div>
+    <div class="div3">div3</div>
+</div>
+</body>
+</html>

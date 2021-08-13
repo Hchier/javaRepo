@@ -1,0 +1,27 @@
+.father {
+    position: relative;
+    height: 1080px;
+    background-color: red;
+}
+
+.father .son {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin-left: 140px;
+    margin-top: 180px;
+
+    background-color: #00b1e7;
+}
+
+a{
+    display: block;
+    text-decoration:none;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    line-height: 200px;
+}
+a:hover{
+    background-color: white;
+}

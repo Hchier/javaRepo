@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav</title>
+    <style>
+        .nav1 {
+            position: relative;
+            left: 50%;
+            margin-left: -200px;
+            width: 382px;
+            height: 50px;
+            /*border: 1px red solid;*/
+        }
+
+        .nav1 a {
+            display: inline-block;
+            padding: 0 5px;
+            height: 50px;
+            line-height: 50px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: lightskyblue;
+        }
+
+        .contents ul {
+            display: none;
+        }
+
+        .contentsChange {
+            position: absolute;
+            list-style: none;
+            width: 382px;
+            height: 200px;
+            border: 1px red solid;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav2 {
+            position: relative;
+            left: 50%;
+            margin-top: 300px;
+            margin-left: -200px;
+            width: 382px;
+            height: 500px;
+            /*border: 1px red solid;*/
+        }
+
+        .nav2 .nav2_li1 {
+            float: left;
+            height: 100px;
+            width: 95px;
+            /*border: 1px red solid;*/
+            box-sizing: border-box;
+        }
+
+        .nav2 .nav2_li1 a {
+            display: inline-block;
+            width: 95px;
+            text-align: center;
+        }
+
+        .nav2 .nav2_li1 a:hover {
+            background-color: #999;
+        }
+
+        .nav2 .nav2_li1 ul {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav1">
+    <div class="headers">
+        <a href="#">#@%^%#@$</a>
+        <a href="#">#@%^%#</a>
+        <a href="#">#@%^%#@</a>
+        <a href="#">#@%^</a>
+    </div>
+    <div class="contents">
+        <ul id="first_li_lists">
+            <li>%#@#!@%#%#$@!%#$@!</li>
+
+        </ul>
+        <ul id="second_li_lists">
+            <li>%#@#!@%#%#$@!%#$@!</li>
+            <li>%#@#!@%#%#$@!%#$@!</li>
+
+        </ul>
+        <ul id="third_li_lists">
+            <li>%#@#!@%#%#$@!%#$@!</li>
+            <li>%#@#!@%#%#$@!%#$@!</li>
+            <li>%#@#!@%#%#$@!%#$@!</li>
+        </ul>
+        <ul id="f_li_lists">
+            <li>%#@#!@%#%#$@!%#$@!</li>
+            <li>%#@#!@%#%#$@!%#$@!</li>
+            <li>%#@#!@%#%#$@!%#$@!</li>
+            <li>%#@#!@%#%#$@!%#$@!</li>
+        </ul>
+    </div>
+</div>
+
+<div class="nav2">
+    <ul>
+        <li class="nav2_li1">
+            <a href="#">###</a>
+            <ul>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+            </ul>
+        </li>
+        <li class="nav2_li1">
+            <a href="#">###</a>
+            <ul>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+            </ul>
+        </li>
+        <li class="nav2_li1">
+            <a href="#">###</a>
+            <ul>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+            </ul>
+        </li>
+        <li class="nav2_li1">
+            <a href="#">###</a>
+            <ul>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+                <li>$#@@$</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    let headers = document.querySelector('.headers').children
+    let contents = document.querySelector('.contents').children
+    for (let i = 0; i < headers.length; i++) {
+        headers[i].onmouseover = function () {
+            for (let j = 0; j < contents.length; j++) {
+                if (i == j) {
+                    contents[j].className = 'contentsChange';
+                    contents[j].style.display = 'block';
+                }
+            }
+        }
+        headers[i].onmouseout = function () {
+            for (let j = 0; j < contents.length; j++) {
+                if (i == j) {
+                    contents[j].style.display = '';
+                }
+            }
+        }
+    }
+
+    let headers2 = document.querySelectorAll('.nav2_li1');
+    for (let i = 0; i < headers2.length; i++) {
+        headers2[i].onmouseover = function () {
+            headers2[i].children[1].style.display = 'block';
+        }
+        headers2[i].onmouseleave = function () {
+            headers2[i].children[1].style.display = 'none';
+
+        }
+    }
+</script>
+
+</body>
+</html>

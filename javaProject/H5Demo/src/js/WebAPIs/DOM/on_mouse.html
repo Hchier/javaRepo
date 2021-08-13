@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouse</title>
+    <style>
+        tbody>tr{
+            background-color: red;
+        }
+        .change{
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>1</th>
+        <th>1</th>
+        <th>1</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>4</td>
+        <td>4</td>
+    </tr>
+    </tbody>
+
+</table>
+
+<script>
+    let tr_list = document.getElementById('tbody').querySelectorAll('tr')
+    for (let i = 0; i < tr_list.length; i++) {
+        tr_list[i].onmouseover = function () {
+            console.log('11')
+            tr_list[i].className='change'
+        }
+        tr_list[i].onmouseout = function () {
+            tr_list[i].backgroundColor = 'red';
+            console.log('11')
+            tr_list[i].className=''
+        }
+    }
+</script>
+
+</body>
+</html>

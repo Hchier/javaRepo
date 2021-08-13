@@ -1,0 +1,22 @@
+所有的实体类必须实现序列化，否则传输会报错
+Type interface demo.mapper.UserMapper is not known to the MapperRegistry: demo.mapper.xml中的namespace写为
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+Reason: Failed to determine a suitable driver class
+    1，添加了数据库依赖autoconfig会去读取数据源配置，如果该module不必连接数据库没有配相关文件便会报错
+        加上exclude = {DataSourceAutoConfiguration.class}，排除此类的autoconfig。
+    2，该模块用到了数据库。要么没写配置文件，要么写错了，要么写了无法导出。
+        加build（还要补全后缀名）
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-netflix-eureka-server</artifactId>-->
+<!--            <version>2.2.9.RELEASE</version>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-eureka-server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>1.4.6.RELEASE</version>
+        </dependency>

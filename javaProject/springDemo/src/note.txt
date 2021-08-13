@@ -1,0 +1,21 @@
+         过注解注入属性，在调用类和被调用类前@如Component，在变量前@Autowired，根据类型注入，
+但若有多个类实现了同一个接口，根据类型无法唯一确定，再用@Qualifier配合@Autowired进一步
+根据名称完成。@Resource既可以根据类型也可以根据名称。@Value根据值。
+
+        使用配置类，basepackages路径不用像配置文件那样具体
+
+
+APO:
+xml、注解创建对象(本类，本类调用的类，增强类都需创建)
+声明增强类、需增强的方法、增强的方式
+开启注解扫描，生成代理对象
+ComponentScan   basePackages={""}
+
+
+jdbcTemplate插入多条数据用batch
+
+
+Transaction
+多了个
+创建事务管理器
+<!--开启事务注解-->

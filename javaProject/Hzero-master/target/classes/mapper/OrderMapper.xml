@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.infra.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.hand.api.controller.dto.OrderReturnDTO">
+        <result column="order_number" property="orderNumber" />
+        <result column="company_name" property="companyName"/>
+        <result column="customer_name" property="customerName" />
+        <result column="order_date" property="orderDate"/>
+        <result column="order_status" property="orderStatus" />
+        <result column="order_quantity" property="orderQuantity" />
+        <result column="unit_selling_price" property="unitSellingPrice" />
+        <result column="orderAmount" property="orderAmount" />
+    </resultMap>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        hse.order_number,
+        hc.company_name,
+        hcu.customer_name,
+        hse.order_date,
+        hse.order_status,
+        hsl.order_quantity,
+        hsl.unit_selling_price,
+        (hsl.order_quantity*hsl.unit_selling_price) as lineAmount
+        from hodr_so_header hse left join hodr_customer hcu on hse.customer_id = hcu.customer_id
+        left join hodr_company hc on hse.company_id = hc.company_id
+        left join hodr_so_line hsl on hse.so_header_id = hsl.so_header_id
+        left join hodr_item hi on hsl.item_id = hi.item_id
+        <where>
+            <if test="companyId != null and companyId != '' ">
+                and hc.company_id = #{companyId}
+            </if>
+            <if test="customerId != null and customerId != ''">
+                and hcu.customer_id = #{customerId}
+            </if>
+            <if test="orderNumber != null and orderNumber != ''">
+                and hse.order_number like concat(concat('%',#{orderNumber}),'%')
+            </if>
+            <if test="itemId != null and itemId != '' ">
+                and hi.item_id = #{itemId}
+            </if>
+            <if test="orderStatus != null and orderStatus != ''">
+                and hse.order_status = #{orderStatus}
+            </if>
+        </where>
+    </select>
+</mapper>

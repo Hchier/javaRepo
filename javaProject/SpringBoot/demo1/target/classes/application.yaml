@@ -1,0 +1,8 @@
+# springboot配置
+server:
+  port: 8080
+
+user1:
+  user-name: Hchier
+  password: pyh345
+  email: haha

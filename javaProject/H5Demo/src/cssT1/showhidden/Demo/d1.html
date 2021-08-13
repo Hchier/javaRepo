@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: lightskyblue;
+        }
+        /*覆盖在img上方*/
+        .mask{
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.2) url(../../pic/playbutton.png) no-repeat center;
+        }
+        /*鼠标经过时，mask显示*/
+        .div1:hover .mask{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1">
+    <div class="mask"></div>
+    <img src="../../pic/noright.png" height="100%" width="100%"/>
+</div>
+</body>
+</html>

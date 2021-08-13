@@ -1,0 +1,1 @@
+相较mybatis01，多了resultMap。

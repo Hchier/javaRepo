@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.mapper.DepartmentsMapper">
+    <insert id="addDepartments" parameterType="pojo.hand_departments">
+        insert into hand_departments values(#{department_id},#{department_code},#{department_name},#{manager_id},#{location_id})
+
+    </insert>
+    <select id="selectAll" resultType="pojo.hand_departments">
+        select * from hand_departments
+    </select>
+
+    <select id="selectById" parameterType="String" resultType="pojo.hand_departments">
+        select * from hand_departments where department_id=#{department_id}
+    </select>
+
+    <update id="update" parameterType="pojo.Update">
+        update hand_employees
+        <set>
+            employee_num=#{result}
+        </set>
+        where employee_id = #{shackles}
+    </update>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="User" class="pojo.User">
+        <property name="username" value="Hchier"></property>
+    </bean>
+    <bean id="UserMgr" class="pojo.UserMgr">
+        <property name="user" ref="User"></property>
+    </bean>
+
+<!--    &lt;!&ndash;有参构造通过index下标注入值&ndash;&gt;-->
+<!--    <bean id="Person" class="pojo.Person">-->
+<!--        <constructor-arg index="0" value="A"/>-->
+<!--        <constructor-arg index="1" value="1"/>-->
+<!--    </bean>-->
+
+    <!--有参构造通过变量名注入值-->
+    <bean id="Person" class="pojo.Person" name="person1,person2">
+        <constructor-arg name="name" value="B"/>
+        <constructor-arg name="age" value="2"/>
+    </bean>
+    <!--起别名-->
+    <alias name="Person" alias="person_alias"/>
+
+</beans>

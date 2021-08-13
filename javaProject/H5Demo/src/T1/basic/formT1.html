@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>formT1</title>
+</head>
+<body>
+
+<form action="test.php" method="post" name="form1">
+    <label for="username">username</label>:&nbsp;&nbsp;<input type="text" id="username" value="" maxlength="8"> <br>
+    password:&nbsp;&nbsp;<input type="password" name="password" value=""> <br>
+    sex:
+    <label for="male">male</label><input type="radio" id="male" name="sex" value="male">
+    <label for="female">female</label><input type="radio" id="female" name="sex" value="female"> <br>
+    habit: 11 <input type="checkbox" name="habit"> 22 <input type="checkbox" name="habit"> <br>
+
+    选择：
+    <select name="" id="">
+        <option value="choice1">choice1</option>
+        <option value="choice2" selected="selected">choice2</option>
+        <option value="choice3">choice3</option>
+        <option value="choice4">choice4</option>
+    </select>
+    <br>
+
+    其它：<br>
+    <textarea name="" id="textarea1" cols="30" rows="5"></textarea>
+
+
+    <br>
+    <input type="reset" value="重新填写">
+    <input type="submit" value="注册">
+
+</form>
+
+
+</body>
+</html>

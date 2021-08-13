@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="test1" />
+        <module name="springcloud-provider-user8002" />
+        <module name="springcloud-provider-user-hystrix-8001" />
+        <module name="spring-eureka-7003" />
+        <module name="springcloud-eureka-7003" />
+        <module name="springcloud-eureka-7002" />
+        <module name="springcloud-eureka-7001" />
+        <module name="springcloud-zuul-9527" />
+        <module name="springcloud-api" />
+        <module name="springcloud-provider-user-8006" />
+        <module name="springcloud-provider-user-8004" />
+        <module name="springcloud-provider-user-8003" />
+        <module name="springcloud-provider-user-8002" />
+        <module name="springcloud-provider-user-8001" />
+        <module name="springcloud-consumer-user-80" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-eureka-7003" target="1.5" />
+      <module name="springcloud-provider-user-8002" target="1.5" />
+      <module name="springcloud-provider-user-8006" target="1.5" />
+      <module name="springcloud-provider-user8002" target="1.5" />
+      <module name="test1" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="test1" options="-parameters" />
+    </option>
+  </component>
+</project>

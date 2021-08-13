@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exclusive</title>
+
+    <style>
+        .change {
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+<input type="button" value="4">
+<input type="button" value="5">
+
+<script>
+    button_list = document.getElementsByTagName('input')
+    for (let i = 0; i < button_list.length; i++) {
+
+        button_list[i].onmouseover = function () {
+            // button_list[i].className='change'
+            button_list[i].style.backgroundColor='lightskyblue'
+        }
+        button_list[i].onmouseout = function () {
+            //button_list[i].className=''
+            button_list[i].style.backgroundColor=''
+        }
+    }
+</script>
+
+
+</body>
+</html>

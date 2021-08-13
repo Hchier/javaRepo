@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                                              http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list id="courses1">
+        <ref bean="course1"></ref>
+        <ref bean="course2"></ref>
+    </util:list>
+
+    <bean name="course1" class="IOCdemo.demo5_extract_injection.Course">
+        <property name="course_name" value="math"></property>
+    </bean>
+
+    <bean name="course2" class="IOCdemo.demo5_extract_injection.Course">
+        <property name="course_name" value="Chinese"></property>
+    </bean>
+
+    <bean name="student" class="IOCdemo.demo5_extract_injection.Student">
+
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+            </list>
+        </property>
+
+        <property name="courses" ref="courses1"></property>
+
+    </bean>
+
+</beans>

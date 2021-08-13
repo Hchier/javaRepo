@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>op</title>
+    <style>
+        #user {
+            display: block;
+            width: 150px;
+            height: 30px;
+            /*border: 1px solid red;*/
+            margin: 0 auto;
+
+        }
+
+        #password {
+            display: block;
+            width: 150px;
+            height: 30px;
+            /*border: 1px solid red;*/
+            margin: 0 auto;
+            outline: none;
+        }
+
+        .buttonshow {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .sprite_li {
+            display: inline-block;
+            margin: 0 auto;
+            height: 40px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul > li {
+            display: inline-block;
+            list-style-type: none;
+            height: 40px;
+            width: 24px;
+            background-color: lightskyblue;
+        }
+
+        .div4 {
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: lightskyblue;
+        }
+
+        .div4_change{
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<button class="button1">显示当前时间</button>
+<div class="div1">div1</div>
+<div class="div2">div2</div>
+<div class="div3">div2</div>
+<button class="button2">pic2</button>
+<button class="button3">pic3</button>
+<br>
+<img id="img1" src="../../../pic/bgpic1.jpg" height="100px" width="100px"/>
+<br>
+
+<input type="text" id="user" value="输入用户名">
+<input type="password" id="password">
+<input type="button" id="buttonshow" class="buttonshow" value="hidden">
+<div class="sprite_li">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="div4" class="div4"></div>
+<script>
+    //点击后改变div1的值
+    document.querySelector('.button1').onclick = function () {
+        document.querySelector('.div1').innerText = getDate();
+    }
+
+    function getDate() {
+        let date = new Date();
+        let year = date.getFullYear();
+        console.log(year)
+        let month = date.getMonth() + 1;
+        console.log(month)
+        let day = date.getDate();
+        console.log(day)
+        return year + ' ' + month + ' ' + day
+    }
+
+    //一刷新就改变div2的值
+    document.querySelector('.div2').innerText = getDate();
+    //innetTEXT去除换行和空格，去除标签
+    //innerHTML可识别标签，不去除标签
+    document.querySelector('.div3').innerHTML = '<strong>hi</strong> hi hi'
+
+    let button2 = document.querySelector('.button2')
+    let button3 = document.querySelector('.button3')
+    let pic1 = document.querySelector('#img1')
+    button2.onclick = function () {
+        pic1.src = '../../../pic/bgpic1.jpg'
+    }
+    button3.onclick = function () {
+        pic1.src = '../../../pic/bgpic2.png'
+    }
+
+    let buttonshow = document.getElementById('buttonshow')
+    let password = document.getElementById('password');
+    let user = document.getElementById('user');
+    buttonshow.onclick = function () {
+        if (password.type == 'password') {
+            password.type = 'text';
+            buttonshow.value = 'show';
+        } else {
+            password.type = 'password';
+            buttonshow.value = 'hidden';
+        }
+
+    }
+
+
+    user.onfocus = function () {
+        if (user.value == '输入用户名')
+            user.value = ''
+    }
+    user.onblur = function () {
+        if (user.value == '') {
+            user.value = '输入用户名'
+        }
+    }
+    all_li = document.querySelectorAll('li')
+    for (let i = 0; i < all_li.length; i++) {
+        let index = -44 * i;
+        all_li[i].style.background = 'url("../../../pic/taobao_sprite.png") 0px ' + index + 'px';
+
+    }
+
+    let div4 = document.getElementsByClassName('div4')
+    div4[0].onclick = function () {
+        //保留原来类名，空格隔开
+        this.className='div4 div4_change';
+    }
+</script>
+
+</body>
+</html>

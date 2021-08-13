@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tips2</title>
+    <style>
+        * {
+            /*margin: 0;*/
+            /*padding: 0;*/
+        }
+
+        /*鼠标hover时，相应的盒子边框变色*/
+        .div1 {
+            /*不给ul的父类div1添加属性，ul会跟着下面的div2跑*/
+            border: red 1px solid;
+            overflow: hidden;
+        }
+
+        ul li {
+            /*盒子之间边框叠加变粗问题，margin负值*/
+            margin-left: -5px;
+            position: relative;
+            top: 0;
+            left: 0;
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: red 5px solid;
+        }
+
+        ul li:hover {
+            /*由于之前使用margin负值，导致右边框被压，用相对定位，使之悬于其他li之上*/
+            /*position: relative;*/
+            /*但若li都为相对定位，则只能提级（li设为relative！！！）*/
+            z-index: 1;
+            border: lightskyblue 5px solid;
+        }
+
+
+        /*文字环绕*/
+        .div2 {
+            margin-top: 100px;
+            width: 400px;
+            height: 400px;
+            border: red 1px solid;
+        }
+
+        .pic1 {
+            /*float最初用于文字环绕*/
+            float: left;
+            padding: 10px;
+            border: red 1px solid;
+        }
+
+
+        /*底部导航*/
+        .bottomnav{
+            /*整体位于可视范围中央，内部文字也位于中央*/
+            text-align: center;
+        }
+        .bottomnav a{
+            display: inline-block;
+            margin-top: 50px;
+            padding:0 18px 0 18px;
+            height: 50px;
+            line-height: 50px;
+            background-color: lightskyblue;
+        }
+        .bottomnav a:hover{
+            background-color: red;
+        }
+        .bottomnav input{
+            height: 46px;
+            width: 45px;
+            outline: none;
+        }
+        .bottomnav .button{
+            height: 50px;
+            width: 45px;
+            background-color: lightskyblue;
+            border-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+
+<div class="div2">
+    <div class="pic1">
+        <img src="pic/abcd.jpg" height="100" width="100"/>
+    </div>
+    <p class="p1">fwafeaf</p>
+</div>
+
+<div class="bottomnav">
+    <a href="#">上一页</a>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">下一页</a>
+    到第<input type="text">页 <input class="button" type="button" value="OK">
+    
+</div>
+
+</body>
+</html>

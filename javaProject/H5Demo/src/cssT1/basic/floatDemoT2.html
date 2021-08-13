@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top {
+            height: 50px;
+            background-color: #87cefa;
+            border: 1px red solid;
+        }
+
+        .banner {
+            height: 150px;
+            width: 980px;
+            margin: 10px auto;
+            border: 1px red solid;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box {
+            width: 980px;
+            /*height: 300px;*/
+            border: 1px red solid;
+            margin: 0 auto;
+
+            /*<!--清除浮动-->*/
+            /*无法显示溢出部分*/
+            overflow: hidden;
+        }
+
+        .box li {
+            width: 237px;
+            height: 300px;
+            border: 1px red solid;
+            float: left;
+            margin-right: 8px;
+        }
+
+        .box .lastli {
+            margin-right: 0;
+        }
+
+        /*<!--清除浮动-->*/
+        .box .clear {.
+            clear: both;
+        }
+
+        .footer {
+            height: 200px;
+            border: 1px red solid;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top">top</div>
+<div class="banner">banner</div>
+<div class="box">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="lastli">4</li>
+
+        <!--清除浮动，必须块级-->
+        <div class="clear"></div>
+    </ul>
+</div>
+<div class="footer">footer</div>
+
+
+</body>
+</html>

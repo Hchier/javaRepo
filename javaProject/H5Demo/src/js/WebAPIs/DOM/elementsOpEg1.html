@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>elementsOpEg1</title>
+</head>
+<body>
+
+<div id="hello"></div>
+
+<script>
+    // 根据系统时间的不同显示不同的hello
+    let hello=document.getElementById('hello')
+    if (getTime()>6 && getTime()<11){
+        hello.innerText='good morning'
+    }
+    else if (getTime()>=11 && getTime()<14){
+        hello.innerText='good noon'
+    }
+    else if(getTime()>14 && getTime()<18){
+        hello.innerText='good afternoon'
+    }
+    else{
+        hello.innerText='good evening'
+    }
+
+    function getTime() {
+        let time=new Date()
+        let hour=time.getHours()
+        console.log(hour)
+        return hour
+    }
+</script>
+</body>
+</html>

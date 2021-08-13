@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        div.div1 {
+
+            width: 300px;
+            height: 300px;
+            border-width: 5px;
+            /*solid dashed dotted 实虚点*/
+            border-style: solid;
+            border-color: red;
+
+            /*表中边框合并*/
+            border-collapse: collapse;
+            /*下边框属性*/
+            border-bottom: 5px solid black;
+            /*文字离边边的距离*/
+            /*padding-top: 20px;*/
+            /*padding-left: 20px;*/
+            /*顺时针*/
+            padding: 5px 6px 7px 8px;
+
+
+            /*外边距,已设置宽度 margin为auto，则盒子居中*/
+            margin: auto;
+
+            /*圆角边框*/
+            /*border-radius: 50%;*/
+
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+            box-sizing: border-box;
+        }
+
+        div.div1:hover {
+            box-shadow: 10px 10px 40px -27px black;
+        }
+
+        div.div2 {
+            width: 100px;
+            height: 100px;
+            border-color: red;
+            border-width: 5px;
+            margin-top: 20px;
+            background-color: red;
+            border-collapse: collapse;
+        }
+
+
+        a {
+            display: inline-block;
+            height: 60px;
+            line-height: 60px;
+            padding-right: 15px;
+            padding-left: 15px;
+            background-color: lightskyblue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #eee;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="div1">
+    <div class="div2">
+
+    </div>
+</div>
+<div class="div1">盒子盒子盒子</div>
+<a href="" class="a1">11111</a>
+<a href="" class="a2">2</a>
+<a href="" class="a3">33333333333</a>
+</body>
+</html>

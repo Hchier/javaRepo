@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>selector</title>
+
+    <style>
+        /*.box1 {*/
+        /*    width: 120px;*/
+        /*    height: 120px;*/
+        /*    font-size: 20px;*/
+        /*}*/
+
+        /*.red1 {*/
+        /*    background-color: red;*/
+        /*}*/
+
+        /*.blue {*/
+        /*    background-color: white;*/
+        /*}*/
+
+        /*#hahaha {*/
+        /*    color: lemonchiffon;*/
+        /*    font-family: "Microsoft YaHei";*/
+        /*    font-size: 25px;*/
+        /*}*/
+
+        /*后代选择器*/
+        /*.ul2 li {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*子选择器*/
+        /*.div1>a{*/
+        /*    color: blue;*/
+        /*}*/
+
+        /*并集选择器*/
+        /*p, div, .div1 > a {*/
+        /*    color: red;*/
+        /*}*/
+
+        /*伪类选择器*/
+        /*未访问过*/
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        /*已访问*/
+        a:visited {
+            color: red;
+            text-decoration: underline;
+        }
+        /*移动到*/
+        a:hover {
+            color: skyblue;
+            text-decoration: underline;
+        }
+        /*已点击未松开*/
+        a:active {
+            color: #003595;
+        }
+
+        /*focus选择器*/
+        input:focus{
+            background-color: lightskyblue;
+        }
+
+        * {
+
+        }
+    </style>
+</head>
+<body>
+
+
+<a href="https://www.baidu.com">a1</a> <br>
+<a href="https://www.douban.com">a2</a> <br>
+<a href="https://www.sougou.com">a3</a> <br>
+<a href="https://www.google.com">a4</a> <br>
+
+<input type="text">
+<input type="text">
+<input type="text">
+
+<p>p1</p>
+<div>div1</div>
+
+<div class="div1">
+    <a href="">儿子a1</a>
+    <a href="">儿子a2</a>
+    <p>儿子p</p>
+    <p>
+        <a href="">孙子a</a>
+    </p>
+</div>
+
+<ul>
+    <li>ul1</li>
+    <li>ul1</li>
+    <li>ul1</li>
+</ul>
+
+<ul class="ul2">
+    <li>ul2</li>
+    <li>ul2</li>
+    <li>ul2</li>
+</ul>
+
+<div class="red1 box1" id="hahaha">哇哇哇哇</div>
+<div class="blue box1" z>222</div>
+<div class="red1 box1">333</div>
+
+</body>
+</html>

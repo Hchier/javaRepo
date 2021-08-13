@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul style="height: 30px; margin-bottom: 0px;">
+    <li class="l_left total_chose_fr nav_active">实时监测</li>
+    <li class="l_left total_chose_pl">统计分析一</li>
+    <li class="l_left total_chose_pl">统计分析二</li>
+    <li class="r_right total_chose_pl">统计分析三</li>
+    <li class="r_right total_chose_pl">统计分析四</li>
+    <li class="r_right total_chose_pl">统计分析五</li>
+</ul>
+
+
+<table title="carTable" border="1px" align="" width="300"  cellspacing="0" bgcolor="#f0ffff" style="margin-left:10px;margin-top:50px">
+    <caption>
+        <h3 >carTable</h3>
+    </caption>
+    <tr align="center" bgcolor="#fffacd">
+        <th>sname</th>
+        <th>sage</th>
+        <th>sex</th>
+        <th>smajor</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
+
+
+
+
+<center>
+
+    <p>sname</p><input type="text" id="sname" style="margin-left:10px; margin-top:0px">
+
+    <h3>sage</h3>
+    <input type="text" id="sage" style="margin-left:10px; margin-top:5px" size="" height="200">
+
+    <h3>sex</h3>
+    <input type="text" id="sex" style="margin-left:10px; margin-top:5px">
+
+    <h3>smajor</h3>
+    <input type="text" id="smajor" style="margin-left:10px; margin-top:5px">
+</center>
+
+</body>
+
+<script language="JavaScript">
+    var sname;
+    var sage;
+    var smajor;
+    var sex;
+    function insertCarData(){
+        sname=document.getElementById("sname").value;
+        sage=document.getElementById("sage").value;
+        smajor=document.getElementById("smajor").value;
+        sex=document.getElementById("sex").value;
+        if(sname==null){
+            alert("SNAME NULL!!!");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+</script>
+
+</html>

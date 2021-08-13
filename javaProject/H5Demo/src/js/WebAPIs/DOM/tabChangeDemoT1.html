@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tabchange</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .tab {
+            position: relative;
+            left: 50%;
+            margin-left: -300px;
+            margin-top: 200px;
+            height: 350px;
+            width: 600px;
+            border: 1px red solid;
+            box-sizing: border-box;
+        }
+
+        .tab .tab_headers {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 50px;
+            width: 600px;
+            /*border: 1px red solid;*/
+        }
+
+        .tab .tab_headers li {
+            float: left;
+            width: 150px;
+            height: 50px;
+            /*border: 1px red solid;*/
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .tab_headers_li_change {
+            background-color: lightskyblue;
+        }
+
+        .tab .tab_con {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -270px;
+            width: 540px;
+            height: 300px;
+
+        }
+
+        .tab .tab_con .items {
+            display: none;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="tab">
+    <div class="tab_headers">
+        <ul>
+            <li class="tab_headers_li ">tab_headers1</li>
+            <li class="tab_headers_li ">tab_headers2</li>
+            <li class="tab_headers_li ">tab_headers3</li>
+            <li class="tab_headers_li ">tab_headers4</li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <div class="items" style="display: block;">tab_headers1</div>
+        <div class="items">tab_headers2</div>
+        <div class="items">tab_headers3</div>
+        <div class="items">tab_headers4</div>
+    </div>
+</div>
+
+
+<script>
+    //document.querySelectorAll('.')  加   ’.‘   ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    let tab_headers_li = document.querySelectorAll('.tab_headers_li');
+    let items = document.querySelectorAll('.items');
+    for (let i = 0; i < tab_headers_li.length; i++) {
+        tab_headers_li[i].onmouseover = function () {
+            //tab_headers_li[i].className = 'tab_headers_li_change tab_headers_li'
+            for (let j = 0; j < items.length; j++) {
+                if (j != i) {
+                    tab_headers_li[j].style.backgroundColor = 'white';
+                    items[j].style.display = 'none';
+                }
+                else {
+                    tab_headers_li[j].style.backgroundColor = 'lightskyblue';
+                    items[j].style.display = 'block';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

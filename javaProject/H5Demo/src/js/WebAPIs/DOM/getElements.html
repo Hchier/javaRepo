@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apis</title>
+</head>
+<body>
+
+<div id="div1">div1</div>
+<ul>
+    <li>ul1</li>
+    <li>ul2</li>
+    <li>ul3</li>
+</ul>
+
+<ol class="ol" id="ol1">
+    <li>ol1—ol1</li>
+    <li>ol1—ol2</li>
+    <li>ol1—ol3</li>
+</ol>
+
+<ol class="ol" id="ol2">
+    <li>ol2—ol1</li>
+    <li>ol2—ol2</li>
+    <li>ol2—ol3</li>
+</ol>
+
+
+<script>
+    //通过id
+    let div1 = document.getElementById('div1')
+    console.log(typeof div1)
+    //console.dir(div1)
+
+    //伪数组存储
+    let list_li1 = document.getElementsByTagName('li')
+    console.log(list_li1)
+
+    //通过父元素获得子元素
+    let ol = document.getElementsByTagName('ol')
+    console.log(ol)
+    //ol是伪数组，ol[0]是对象
+    console.log(ol[0].getElementsByTagName('li'))
+
+    //通过id获得的ol1直接是对象
+    let ol1 = document.getElementById('ol1')
+    console.log(ol1.getElementsByTagName('li'))
+
+    //通过class
+    let ol_class = document.getElementsByClassName('ol')
+    console.log("ol_class", ol_class)
+
+    //queryseletor 返回指定选择器的第一个元素对象
+    let firstbox = document.querySelector('.ol')
+    console.log("firstbox", firstbox)
+
+    let firsttbox = document.querySelector('#ol1')
+    console.log("firstbox", firsttbox)
+
+    //querySelectorAll 返回所有指定对象的集合
+    let allbox = document.querySelectorAll('.ol')
+    console.log("allbox", allbox)
+
+
+    let body = document.body;
+    console.log("body", body);
+    let html = document.documentElement;
+    console.log("html", html)
+
+</script>
+
+</body>
+</html>

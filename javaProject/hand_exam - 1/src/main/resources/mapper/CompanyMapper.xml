@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.infra.mapper.CompanyMapper">
+    <!-- 可根据自己的需求，是否要使用 -->
+<!--    <resultMap id="BaseResultMap" type="com.hand.domain.entity.Company">-->
+<!--        <result column="company_id" property="companyId" jdbcType="DECIMAL"/>-->
+<!--        <result column="company_number" property="companyNumber" jdbcType="VARCHAR"/>-->
+<!--        <result column="company_name" property="companyName" jdbcType="VARCHAR"/>-->
+<!--        <result column="enable_flag" property="enableFlag" jdbcType="DECIMAL"/>-->
+<!--        <result column="created_by" property="createdBy" jdbcType="DECIMAL"/>-->
+<!--        <result column="creation_date" property="creationDate" jdbcType="DATE"/>-->
+<!--        <result column="last_updated_by" property="lastUpdatedBy" jdbcType="DECIMAL"/>-->
+<!--        <result column="last_update_date" property="lastUpdateDate" jdbcType="DATE"/>-->
+<!--        <result column="object_version_number" property="objectVersionNumber" jdbcType="DECIMAL"/>-->
+<!--    </resultMap>-->
+
+    <select id="selectByNum" resultType="com.hand.domain.entity.Company">
+        select * from hodr_company where hodr_company.company_number=#{company_number}
+    </select>
+    <delete id="deleteById" parameterType="Long">
+        delete from hodr_company where hodr_company.company_id=#{company_id}
+    </delete>
+</mapper>
